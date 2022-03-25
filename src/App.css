@@ -89,7 +89,7 @@ header {
 }
 
 .music {
-	max-width: max-content;
+	max-width: 800px;
 	border: 1px solid rgb(0, 0, 0);
 	margin: 20px auto;
 	padding: 30px 20px;

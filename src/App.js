@@ -10,12 +10,9 @@ function App() {
 				<h1>Reinardtify</h1>
 			</header>
 			<Reinardtify>
-				<Music
-					image={data.album.images[0].url}
-					name={data.name}
-					artist={data.artists[0].name}
-					album={data.album.name}
-				/>
+				{data.map(feed => (
+					<Music {...feed} />
+				))}
 			</Reinardtify>
 		</div>
 	);
