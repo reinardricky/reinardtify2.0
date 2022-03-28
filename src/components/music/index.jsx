@@ -1,4 +1,4 @@
-function Music({ image, name, artists, album }) {
+function Music({ name, artists, album }) {
 	return (
 		<div className="music">
 			<img src={album.images[0].url} alt="album" />

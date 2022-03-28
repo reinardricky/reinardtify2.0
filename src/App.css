@@ -47,7 +47,8 @@ body {
 	font-family: "Roboto";
 	background-color: rgb(0, 0, 0);
 	background-image: url("images/memphis-mini-dark.png");
-	background-size: contain;
+	background-size: 40% auto;
+	background-repeat: repeat;
 	color: white;
 }
 
@@ -70,6 +71,29 @@ html {
 	margin: 0 auto;
 }
 
+.login a {
+	background-color: rgb(0, 251, 163);
+	display: inline-block;
+	border-radius: 100px;
+	color: black;
+	text-align: center;
+	padding: 3px 20px;
+	margin: 10px 10px;
+	font-size: 25px;
+}
+
+.logout {
+	background-color: rgb(129, 140, 140);
+	display: inline-block;
+	border-radius: 100px;
+	color: black;
+	text-align: center;
+	padding: 3px 20px;
+	margin: 10px 10px;
+	word-spacing: 20px;
+	font-size: 25px;
+}
+
 .music img {
 	height: 250px;
 }
@@ -85,7 +109,7 @@ header h1 {
 header {
 	background-color: rgb(3, 0, 0);
 	height: 80px;
-	margin-bottom: 50px;
+	margin-bottom: 10px;
 }
 
 .music {
