@@ -3,7 +3,7 @@ import axios from "axios";
 import Music from "../../components/music";
 import "./searchbar.css";
 
-function Reinardtify({ children }) {
+function Reinardtify() {
 	const CLIENT_ID = "865b9e94d4c2418e8c6845065e5c0dbe";
 	const REDIRECT_URI = "http://localhost:3000";
 	const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize";
