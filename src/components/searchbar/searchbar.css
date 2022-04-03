@@ -1,4 +1,4 @@
-form {
+.searching {
 	position: relative;
 	top: 50%;
 	left: 50%;
@@ -13,7 +13,7 @@ form {
 	padding: 5px;
 	margin-top: 50px;
 }
-input {
+.searching-input {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -28,7 +28,7 @@ input {
 	padding: 0 20px;
 }
 
-.fa {
+.fa-search {
 	box-sizing: border-box;
 	padding: 10px;
 	width: 42.5px;
@@ -43,19 +43,19 @@ input {
 	transition: all 1s;
 }
 
-form:hover,
-form:valid {
+.searching:hover,
+.searching:valid {
 	width: 70%;
 	cursor: pointer;
 }
 
-form:hover input,
-form:valid input {
+.searching:hover .searching-input,
+.searching:valid .searching-input {
 	display: block;
 }
 
-form:hover .fa,
-form:valid .fa {
+.searching:hover .fa-search,
+.searching:valid .fa-search {
 	background: #07051a;
 	color: white;
 }

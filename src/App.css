@@ -94,10 +94,6 @@ html {
 	font-size: 25px;
 }
 
-.music img {
-	height: 90px;
-}
-
 header h1 {
 	font-size: 60px;
 	text-align: center;
@@ -112,86 +108,6 @@ header {
 	margin-bottom: 10px;
 }
 
-.music {
-	/* max-width: 800px; */
-	width: 80%;
-	border: 1px solid rgb(0, 0, 0);
-	margin: 20px auto;
-	padding: 20px 20px;
-	/* text-align: left; */
-	display: flex;
-	/* float: inline-start; */
-	background-color: rgb(0, 251, 163);
-	color: rgb(0, 5, 50);
-	border-radius: 12px;
-	flex-flow: column wrap;
-	/* align-content: space-between; */
-	max-height: 140px;
-}
-.music-left {
-	text-align: left;
-	display: flex;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	white-space: nowrap;
-}
-
-.music h2 {
-	font-size: 25px;
-}
-
-.music h3 {
-	font-size: 20px;
-}
-
-.music h4 {
-	font-size: 15px;
-}
-
-.music-name {
-	text-align: left;
-	margin-left: 10px;
-}
-
-.select {
-	background-color: black;
-	display: inline-block;
-	border-radius: 100px;
-	color: white;
-	padding: 3px 20px;
-	margin: 20px 10px;
-	font-size: 25px;
-}
-
-.select-align {
-	text-align: right;
-}
-
-/* .select button {
-	text-align: right;
-} */
-
-@media all and (max-width: 1100px) {
-	.music-left {
-		margin-right: 10px;
-		width: 500px;
-	}
-}
-
-@media all and (max-width: 900px) {
-	.music-left {
-		margin-right: 10px;
-		width: 400px;
-	}
-}
-
-@media all and (max-width: 800px) {
-	.music-left {
-		margin-right: 10px;
-		width: 300px;
-	}
-}
-
 @media all and (max-width: 670px) {
 	header h1 {
 		font-size: 40px;
@@ -200,46 +116,7 @@ header {
 	header {
 		margin-bottom: 10px;
 	}
-	.music {
-		margin-left: 4px;
-		margin-right: 4px;
-		display: inline-block;
-		padding-top: 10px;
-		padding-bottom: 5px;
-		width: 80%;
-		margin-top: 5px;
-		margin-bottom: 5px;
-	}
 
-	.music img {
-		height: 50px;
-	}
-
-	.music-left {
-		margin-right: 10px;
-	}
-	.music h2 {
-		font-size: 17px;
-	}
-
-	.music h3 {
-		font-size: 14px;
-	}
-
-	.music h4 {
-		font-size: 10px;
-	}
-
-	.select {
-		font-size: 12px;
-		margin-top: 8px;
-		margin-left: 2px;
-		margin-bottom: 5px;
-	}
-
-	.select-align {
-		text-align: center;
-	}
 	.play {
 		font-size: 20px;
 	}

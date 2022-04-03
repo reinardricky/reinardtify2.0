@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Music from "../../components/music";
-import "./searchbar.css";
+import Playlist from "../../components/playlist";
+import SearchBar from "../../components/searchbar";
+import MusicItem from "../../components/music/musicItem";
+import "../../components/music/music.css";
 
 function Reinardtify() {
 	const CLIENT_ID = "865b9e94d4c2418e8c6845065e5c0dbe";
@@ -13,6 +15,43 @@ function Reinardtify() {
 	const [token, setToken] = useState("");
 	const [searchKey, setSearchKey] = useState("");
 	const [tracks, setTrack] = useState([]);
+	const [playlist, setPlaylist] = useState({
+		title: "",
+		description: "",
+	});
+
+	const [selectedTracks, setSelectedTracks] = useState([]);
+	const [combinedTracks, setCombinedTracks] = useState([]);
+
+	const handleSelectedTrack = track => {
+		const alreadySelected = selectedTracks.find(t => t.uri === track.uri);
+		alreadySelected
+			? setSelectedTracks(selectedTracks.filter(t => t.uri !== track.uri))
+			: setSelectedTracks(selectedTracks => [...selectedTracks, track]);
+	};
+
+	useEffect(
+		e => {
+			const combinedTrackWithSelectedTrack = tracks.map(track => ({
+				...track,
+				isSelected: selectedTracks.find(t => t.uri === track.uri),
+			}));
+			setCombinedTracks(combinedTrackWithSelectedTrack);
+		},
+		[selectedTracks, tracks]
+	);
+
+	const renderPlayListItems = () =>
+		combinedTracks.map(item => {
+			const { uri } = item;
+			return (
+				<MusicItem
+					key={uri}
+					track={item}
+					onSelectedTrack={handleSelectedTrack}
+				/>
+			);
+		});
 
 	useEffect(() => {
 		const hash = window.location.hash;
@@ -37,6 +76,46 @@ function Reinardtify() {
 		window.localStorage.removeItem("token");
 	};
 
+	const playlistAdd = async e => {
+		e.preventDefault();
+		const uris = selectedTracks.map(item => item.uri);
+		console.log(uris);
+		axios
+			.get("https://api.spotify.com/v1/me", {
+				headers: {
+					Authorization: `Bearer ${token}`,
+				},
+			})
+			.then(function (response) {
+				console.log(response);
+				axios
+					.post(
+						`https://api.spotify.com/v1/users/${response.data.id}/playlists`,
+						{
+							name: playlist.title,
+							description: playlist.description,
+							public: false,
+						},
+						{
+							headers: {
+								Authorization: `Bearer ${token}`,
+							},
+						}
+					)
+					.then(function (response) {
+						axios.post(
+							`https://api.spotify.com/v1/playlists/${response.data.id}/tracks`,
+							{ uris: uris },
+							{
+								headers: {
+									Authorization: `Bearer ${token}`,
+								},
+							}
+						);
+					});
+			});
+	};
+
 	const searchTrack = async e => {
 		e.preventDefault();
 		const { data } = await axios.get("https://api.spotify.com/v1/search", {
@@ -52,47 +131,53 @@ function Reinardtify() {
 		setTrack(data.tracks.items);
 	};
 
-	return (
-		<div className="music-list">
-			<div className="container">
-				{!token ? (
-					<div className="login">
-						<a
-							href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&scope=${SCOPE}`}
-						>
-							Login to Spotify
-						</a>
-					</div>
-				) : (
-					<button className="logout" onClick={logout}>
-						Logout
-					</button>
-				)}
-				{token ? (
-					<>
-						<h1>Search tracks</h1>
-						<form className="searching" onSubmit={searchTrack}>
-							<input
-								id="search-bar"
-								type="search"
-								placeholder="Search..."
-								onKeyPress={e =>
-									e.key === "Enter" && setSearchKey(e.target.value)
-								}
-								required
-							/>
-							<i className="fa fa-search"></i>
-						</form>
-					</>
-				) : (
-					<h1>Please login to Search tracks</h1>
-				)}
+	const handleSearchChange = e => {
+		setSearchKey(e.target.value);
+	};
 
-				{tracks.map(tracks => (
-					<Music key={tracks.id} {...tracks} />
-				))}
+	const handlePlaylistChange = e => {
+		const { name, value } = e.target;
+		setPlaylist({ ...playlist, [name]: value });
+	};
+
+	return (
+		<>
+			<div className="music-list">
+				<div className="container">
+					{!token ? (
+						<div className="login">
+							<a
+								href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&scope=${SCOPE}`}
+							>
+								Login to Spotify
+							</a>
+						</div>
+					) : (
+						<button className="logout" onClick={logout}>
+							Logout
+						</button>
+					)}
+					{token ? (
+						<>
+							<Playlist
+								playlist={playlist}
+								handleChange={handlePlaylistChange}
+								handleSubmit={playlistAdd}
+							/>
+							<h1>Search tracks</h1>
+
+							<SearchBar
+								searchTrack={searchTrack}
+								handleSearchChange={handleSearchChange}
+							/>
+						</>
+					) : (
+						<h1>Please login to Search tracks and Create playlist</h1>
+					)}
+					{renderPlayListItems()}
+				</div>
 			</div>
-		</div>
+		</>
 	);
 }
 
