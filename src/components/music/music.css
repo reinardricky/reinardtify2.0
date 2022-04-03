@@ -53,6 +53,16 @@
 	font-size: 25px;
 }
 
+.deselect {
+	background-color: rgb(255, 255, 255);
+	display: inline-block;
+	border-radius: 100px;
+	color: rgb(0, 0, 0);
+	padding: 3px 20px;
+	margin: 20px 10px;
+	font-size: 25px;
+}
+
 .select-align {
 	text-align: right;
 }
@@ -110,6 +120,12 @@
 	}
 
 	.select {
+		font-size: 12px;
+		margin-top: 8px;
+		margin-left: 2px;
+		margin-bottom: 5px;
+	}
+	.deselect {
 		font-size: 12px;
 		margin-top: 8px;
 		margin-left: 2px;

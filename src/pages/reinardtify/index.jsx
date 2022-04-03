@@ -112,6 +112,7 @@ function Reinardtify() {
 								},
 							}
 						);
+						alert("Playlist Added");
 					});
 			});
 	};

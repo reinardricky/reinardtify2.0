@@ -1,5 +1,6 @@
 const MusicItem = ({ track, onSelectedTrack }) => {
 	const { album, name, artists, isSelected } = track;
+
 	return (
 		<div className="music">
 			<div className="music-left">
@@ -12,9 +13,12 @@ const MusicItem = ({ track, onSelectedTrack }) => {
 			</div>
 
 			<div className="select-align">
-				<button className="select" onClick={() => onSelectedTrack(track)}>
+				<button
+					className={isSelected ? "deselect" : "select"}
+					onClick={() => onSelectedTrack(track)}
+				>
 					{" "}
-					{isSelected ? "Deselect" : "Select"}
+					{isSelected ? "Selected" : "Select"}
 				</button>
 			</div>
 		</div>

@@ -13,9 +13,11 @@ function Playlist({ playlist, handleChange, handleSubmit }) {
 							className="playlist-title"
 							placeholder="Insert Playlist Title"
 							name="title"
+							minLength={10}
 							value={playlist.title}
 							onChange={handleChange}
 						/>
+						<h3>minimum 10 characters</h3>
 						<h2>Description</h2>
 						<input
 							type="text"
