@@ -4,15 +4,12 @@ import Playlist from "../../components/playlist";
 import SearchBar from "../../components/searchbar";
 import MusicItem from "../../components/music/musicItem";
 import "../../components/music/music.css";
+import SignIn from "../../components/signIn";
+import { useSelector } from "react-redux";
 
 function Reinardtify() {
-	const CLIENT_ID = "865b9e94d4c2418e8c6845065e5c0dbe";
-	const REDIRECT_URI = "http://localhost:3000";
-	const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize";
-	const RESPONSE_TYPE = "token";
-	const SCOPE = "playlist-modify-private";
+	const token = useSelector(state => state.token.value);
 
-	const [token, setToken] = useState("");
 	const [searchKey, setSearchKey] = useState("");
 	const [tracks, setTrack] = useState([]);
 	const [playlist, setPlaylist] = useState({
@@ -41,7 +38,7 @@ function Reinardtify() {
 		[selectedTracks, tracks]
 	);
 
-	const renderPlayListItems = () =>
+	const renderSearchItems = () =>
 		combinedTracks.map(item => {
 			const { uri } = item;
 			return (
@@ -53,31 +50,9 @@ function Reinardtify() {
 			);
 		});
 
-	useEffect(() => {
-		const hash = window.location.hash;
-		let token = window.localStorage.getItem("token");
-
-		if (!token && hash) {
-			token = hash
-				.substring(1)
-				.split("&")
-				.find(elem => elem.startsWith("access_token"))
-				.split("=")[1];
-
-			window.location.hash = "";
-			window.localStorage.setItem("token", token);
-		}
-
-		setToken(token);
-	}, []);
-
-	const logout = () => {
-		setToken("");
-		window.localStorage.removeItem("token");
-	};
-
 	const playlistAdd = async e => {
 		e.preventDefault();
+		console.log(selectedTracks);
 		const uris = selectedTracks.map(item => item.uri);
 		console.log(uris);
 		axios
@@ -145,19 +120,7 @@ function Reinardtify() {
 		<>
 			<div className="music-list">
 				<div className="container">
-					{!token ? (
-						<div className="login">
-							<a
-								href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&scope=${SCOPE}`}
-							>
-								Login to Spotify
-							</a>
-						</div>
-					) : (
-						<button className="logout" onClick={logout}>
-							Logout
-						</button>
-					)}
+					<SignIn />
 					{token ? (
 						<>
 							<Playlist
@@ -171,11 +134,11 @@ function Reinardtify() {
 								searchTrack={searchTrack}
 								handleSearchChange={handleSearchChange}
 							/>
+							{renderSearchItems()}
 						</>
 					) : (
 						<h1>Please login to Search tracks and Create playlist</h1>
 					)}
-					{renderPlayListItems()}
 				</div>
 			</div>
 		</>

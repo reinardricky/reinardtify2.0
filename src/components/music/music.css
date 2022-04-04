@@ -1,17 +1,13 @@
 .music {
-	/* max-width: 800px; */
 	width: 80%;
 	border: 1px solid rgb(0, 0, 0);
 	margin: 20px auto;
 	padding: 20px 20px;
-	/* text-align: left; */
 	display: flex;
-	/* float: inline-start; */
 	background-color: rgb(0, 251, 163);
 	color: rgb(0, 5, 50);
 	border-radius: 12px;
 	flex-flow: column wrap;
-	/* align-content: space-between; */
 	max-height: 140px;
 }
 .music img {
@@ -24,6 +20,7 @@
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
+	max-width: 700px;
 }
 
 .music h2 {

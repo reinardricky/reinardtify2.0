@@ -1,5 +1,7 @@
 import "./App.css";
 import Reinardtify from "./pages/reinardtify";
+import { Provider } from "react-redux";
+import store from "./redux/store";
 
 function App() {
 	return (
@@ -7,8 +9,9 @@ function App() {
 			<header>
 				<h1>Reinardtify</h1>
 			</header>
-
-			<Reinardtify />
+			<Provider store={store}>
+				<Reinardtify />
+			</Provider>
 		</div>
 	);
 }
