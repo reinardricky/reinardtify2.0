@@ -20,6 +20,14 @@ function Reinardtify() {
 	const [selectedTracks, setSelectedTracks] = useState([]);
 	const [combinedTracks, setCombinedTracks] = useState([]);
 
+	const HeaderToken = () => {
+		return {
+			headers: {
+				Authorization: `Bearer ${token}`,
+			},
+		};
+	};
+
 	const handleSelectedTrack = track => {
 		const alreadySelected = selectedTracks.find(t => t.uri === track.uri);
 		alreadySelected
@@ -56,11 +64,7 @@ function Reinardtify() {
 		const uris = selectedTracks.map(item => item.uri);
 		console.log(uris);
 		axios
-			.get("https://api.spotify.com/v1/me", {
-				headers: {
-					Authorization: `Bearer ${token}`,
-				},
-			})
+			.get("https://api.spotify.com/v1/me", HeaderToken())
 			.then(function (response) {
 				console.log(response);
 				axios
@@ -71,21 +75,13 @@ function Reinardtify() {
 							description: playlist.description,
 							public: false,
 						},
-						{
-							headers: {
-								Authorization: `Bearer ${token}`,
-							},
-						}
+						HeaderToken()
 					)
 					.then(function (response) {
 						axios.post(
 							`https://api.spotify.com/v1/playlists/${response.data.id}/tracks`,
 							{ uris: uris },
-							{
-								headers: {
-									Authorization: `Bearer ${token}`,
-								},
-							}
+							HeaderToken()
 						);
 						alert("Playlist Added");
 					});
@@ -94,15 +90,16 @@ function Reinardtify() {
 
 	const searchTrack = async e => {
 		e.preventDefault();
-		const { data } = await axios.get("https://api.spotify.com/v1/search", {
-			headers: {
-				Authorization: `Bearer ${token}`,
+		const { data } = await axios.get(
+			"https://api.spotify.com/v1/search",
+			{
+				params: {
+					q: searchKey,
+					type: "track",
+				},
 			},
-			params: {
-				q: searchKey,
-				type: "track",
-			},
-		});
+			HeaderToken()
+		);
 
 		setTrack(data.tracks.items);
 	};
