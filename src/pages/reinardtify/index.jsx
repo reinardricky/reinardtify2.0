@@ -91,13 +91,7 @@ function Reinardtify() {
 	const searchTrack = async e => {
 		e.preventDefault();
 		const { data } = await axios.get(
-			"https://api.spotify.com/v1/search",
-			{
-				params: {
-					q: searchKey,
-					type: "track",
-				},
-			},
+			`https://api.spotify.com/v1/search?q=${searchKey}&type=track`,
 			HeaderToken()
 		);
 
