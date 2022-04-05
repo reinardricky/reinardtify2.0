@@ -125,7 +125,7 @@ function Reinardtify() {
 								searchTrack={searchTrack}
 								handleSearchChange={handleSearchChange}
 							/>
-							{renderSearchItems()}
+							<div className="music-searchlist">{renderSearchItems()}</div>
 						</>
 					) : (
 						<h1>Please login to Search tracks and Create playlist</h1>

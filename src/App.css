@@ -42,11 +42,22 @@
 	padding: 0;
 	box-sizing: border-box;
 }
+::-webkit-scrollbar {
+	width: 10px;
+	height: 10px;
+}
+::-webkit-scrollbar-track {
+	background-color: transparent;
+	border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+	background-color: rgba(255, 255, 255, 0.163);
+	border-radius: 10px;
+}
 
 body {
 	font-family: "Roboto";
-	background-color: rgb(0, 0, 0);
-	background-image: url("images/memphis-mini-dark.png");
+	background-color: rgb(15, 15, 15);
 	background-size: 40% auto;
 	background-repeat: repeat;
 	color: white;
@@ -115,6 +126,7 @@ header {
 
 	header {
 		margin-bottom: 10px;
+		height: 50px;
 	}
 
 	.play {

@@ -10,6 +10,7 @@ function SearchBar({ searchTrack, handleSearchChange }) {
 				placeholder="Search..."
 				onChange={handleSearchChange}
 				onKeyPress={e => e.key === "Enter"}
+				required
 			/>
 			<i className="fa fa-search"></i>
 		</form>
