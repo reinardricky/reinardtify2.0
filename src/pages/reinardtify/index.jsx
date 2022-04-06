@@ -6,7 +6,7 @@ import MusicItem from "../../components/music/musicItem";
 import "../../components/music/music.css";
 import SignIn from "../../components/signIn";
 import { useSelector } from "react-redux";
-import { BrowserRouter as Switch, Route } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 
 function Reinardtify() {
 	const token = useSelector(state => state.token.value);
