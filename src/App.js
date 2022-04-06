@@ -2,6 +2,7 @@ import "./App.css";
 import Reinardtify from "./pages/reinardtify";
 import { Provider } from "react-redux";
 import store from "./redux/store";
+import { BrowserRouter as Router } from "react-router-dom";
 
 function App() {
 	return (
@@ -10,7 +11,9 @@ function App() {
 				<h1>Reinardtify</h1>
 			</header>
 			<Provider store={store}>
-				<Reinardtify />
+				<Router>
+					<Reinardtify />
+				</Router>
 			</Provider>
 		</div>
 	);

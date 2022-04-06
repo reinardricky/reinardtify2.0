@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import { login } from "../../redux/token-slice";
 import { useDispatch } from "react-redux";
+import { BrowserRouter as Switch, Link } from "react-router-dom";
 
 function SignIn() {
 	const CLIENT_ID = "865b9e94d4c2418e8c6845065e5c0dbe";
-	const REDIRECT_URI = "http://localhost:3000";
+	const REDIRECT_URI = "http://localhost:3000/create-playlist";
 	const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize";
 	const RESPONSE_TYPE = "token";
 	const SCOPE = "playlist-modify-private";
@@ -14,30 +15,27 @@ function SignIn() {
 
 	useEffect(() => {
 		const hash = window.location.hash;
-		let token = window.localStorage.getItem("token");
 
 		if (!token && hash) {
-			token = hash
-				.substring(1)
-				.split("&")
-				.find(elem => elem.startsWith("access_token"))
-				.split("=")[1];
+			setToken(
+				hash
+					.substring(1)
+					.split("&")
+					.find(elem => elem.startsWith("access_token"))
+					.split("=")[1]
+			);
 
 			window.location.hash = "";
-			window.localStorage.setItem("token", token);
 		}
-
-		setToken(token);
 		dispatch(login(token));
-	}, [dispatch]);
+	}, [dispatch, token]);
 
 	const logout = () => {
 		setToken("");
-		window.localStorage.removeItem("token");
 		dispatch(login(""));
 	};
 	return (
-		<>
+		<Switch>
 			{!token ? (
 				<div className="login">
 					<a
@@ -47,11 +45,13 @@ function SignIn() {
 					</a>
 				</div>
 			) : (
-				<button className="logout" onClick={logout}>
-					Logout
-				</button>
+				<Link to="/">
+					<button className="logout" onClick={logout}>
+						Logout
+					</button>
+				</Link>
 			)}
-		</>
+		</Switch>
 	);
 }
 

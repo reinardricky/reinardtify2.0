@@ -6,6 +6,7 @@ import MusicItem from "../../components/music/musicItem";
 import "../../components/music/music.css";
 import SignIn from "../../components/signIn";
 import { useSelector } from "react-redux";
+import { BrowserRouter as Switch, Route } from "react-router-dom";
 
 function Reinardtify() {
 	const token = useSelector(state => state.token.value);
@@ -112,24 +113,28 @@ function Reinardtify() {
 			<div className="music-list">
 				<div className="container">
 					<SignIn />
-					{token ? (
-						<>
-							<Playlist
-								playlist={playlist}
-								handleChange={handlePlaylistChange}
-								handleSubmit={playlistAdd}
-							/>
-							<h1>Search tracks</h1>
+					<Switch>
+						{token ? (
+							<Route path="/create-playlist">
+								<Playlist
+									playlist={playlist}
+									handleChange={handlePlaylistChange}
+									handleSubmit={playlistAdd}
+								/>
+								<h1>Search tracks</h1>
 
-							<SearchBar
-								searchTrack={searchTrack}
-								handleSearchChange={handleSearchChange}
-							/>
-							<div className="music-searchlist">{renderSearchItems()}</div>
-						</>
-					) : (
-						<h1>Please login to Search tracks and Create playlist</h1>
-					)}
+								<SearchBar
+									searchTrack={searchTrack}
+									handleSearchChange={handleSearchChange}
+								/>
+								<div className="music-searchlist">{renderSearchItems()}</div>
+							</Route>
+						) : (
+							<Route path="/">
+								<h1>Please login to Search tracks and Create playlist</h1>
+							</Route>
+						)}
+					</Switch>
 				</div>
 			</div>
 		</>
