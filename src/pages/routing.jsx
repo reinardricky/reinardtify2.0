@@ -1,4 +1,3 @@
-import "../assets/stylesheet/music.css";
 import { useSelector } from "react-redux";
 import { Switch, Route } from "react-router-dom";
 import { Redirect } from "react-router-dom";

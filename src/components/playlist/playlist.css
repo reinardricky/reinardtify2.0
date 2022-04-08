@@ -67,16 +67,36 @@
 }
 
 @media all and (max-width: 670px) {
+	.addPlaylist {
+		font-size: 15px;
+	}
+
 	.playlist {
 		width: 90%;
 		margin: 2px auto;
 		padding: 5px 20px;
+		font-size: 20px;
 	}
 
+	.playlist h2 {
+		margin-bottom: 15px;
+	}
 	.playlist-title {
 		width: 100%;
 	}
 	.playlist-desc {
 		width: 100%;
+	}
+
+	.playlist-title {
+		font-size: 20px;
+	}
+
+	.playlist-desc {
+		font-size: 20px;
+	}
+
+	.submit {
+		font-size: 20px;
 	}
 }

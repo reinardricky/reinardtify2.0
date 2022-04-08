@@ -1,3 +1,5 @@
+import "./music.css";
+
 const Music = ({ track, onSelectedTrack }) => {
 	const { album, name, artists, isSelected } = track;
 

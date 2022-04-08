@@ -82,27 +82,21 @@ html {
 	margin: 0 auto;
 }
 
-.login a {
-	background-color: rgb(0, 251, 163);
-	display: inline-block;
-	border-radius: 100px;
-	color: black;
-	text-align: center;
-	padding: 3px 20px;
-	margin: 10px 10px;
-	font-size: 25px;
+.music-searchlist {
+	overflow-y: scroll;
+	height: 500px;
 }
-
-.logout {
-	background-color: rgb(129, 140, 140);
-	display: inline-block;
-	border-radius: 100px;
-	color: black;
-	text-align: center;
-	padding: 3px 20px;
-	margin: 10px 10px;
-	word-spacing: 20px;
-	font-size: 25px;
+.music-searchlist::-webkit-scrollbar {
+	width: 10px;
+	height: 10px;
+}
+.music-searchlist::-webkit-scrollbar-track {
+	background-color: transparent;
+	border-radius: 10px;
+}
+.music-searchlist::-webkit-scrollbar-thumb {
+	background-color: rgba(255, 255, 255, 0.747);
+	border-radius: 10px;
 }
 
 header h1 {
@@ -127,37 +121,5 @@ header {
 	header {
 		margin-bottom: 10px;
 		height: 50px;
-	}
-
-	.play {
-		font-size: 20px;
-	}
-
-	.addPlaylist {
-		font-size: 15px;
-	}
-
-	.playlist {
-		margin-left: 5px;
-		margin-right: 5px;
-		padding-left: 0px;
-		padding-right: 0px;
-		font-size: 20px;
-	}
-
-	.playlist h2 {
-		margin-bottom: 15px;
-	}
-
-	.playlist-title {
-		font-size: 20px;
-	}
-
-	.playlist-desc {
-		font-size: 20px;
-	}
-
-	.submit {
-		font-size: 20px;
 	}
 }
