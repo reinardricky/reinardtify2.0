@@ -1,4 +1,4 @@
-import "./searchbar.css";
+import "../../assets/stylesheet/searchbar.css";
 
 function SearchBar({ searchTrack, handleSearchChange }) {
 	return (

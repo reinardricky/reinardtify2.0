@@ -1,4 +1,4 @@
-import "./playlist.css";
+import "../../assets/stylesheet/playlist.css";
 
 function Playlist({ playlist, handleChange, handleSubmit }) {
 	return (

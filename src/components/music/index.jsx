@@ -1,4 +1,4 @@
-const MusicItem = ({ track, onSelectedTrack }) => {
+const Music = ({ track, onSelectedTrack }) => {
 	const { album, name, artists, isSelected } = track;
 
 	return (
@@ -17,7 +17,6 @@ const MusicItem = ({ track, onSelectedTrack }) => {
 					className={isSelected ? "deselect" : "select"}
 					onClick={() => onSelectedTrack(track)}
 				>
-					{" "}
 					{isSelected ? "Selected" : "Select"}
 				</button>
 			</div>
@@ -25,4 +24,4 @@ const MusicItem = ({ track, onSelectedTrack }) => {
 	);
 };
 
-export default MusicItem;
+export default Music;

@@ -1,5 +1,5 @@
-import "./App.css";
-import Reinardtify from "./pages/reinardtify";
+import "./assets/stylesheet/App.css";
+import Routing from "./pages/routing";
 import { Provider } from "react-redux";
 import store from "./redux/store";
 import { BrowserRouter as Router } from "react-router-dom";
@@ -12,7 +12,7 @@ function App() {
 			</header>
 			<Provider store={store}>
 				<Router>
-					<Reinardtify />
+					<Routing />
 				</Router>
 			</Provider>
 		</div>
