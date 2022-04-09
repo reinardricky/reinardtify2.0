@@ -74,15 +74,22 @@ function CreatePlaylist() {
 						);
 						alert("Playlist Added");
 					});
+			})
+			.catch(() => {
+				alert("Playlist add failed");
 			});
 	};
 
 	const searchTrack = async e => {
 		e.preventDefault();
-		const { data } = await axios.get(
-			`https://api.spotify.com/v1/search?q=${searchKey}&type=track`,
-			HeaderToken()
-		);
+		const { data } = await axios
+			.get(
+				`https://api.spotify.com/v1/search?q=${searchKey}&type=track`,
+				HeaderToken()
+			)
+			.catch(() => {
+				alert("Search error");
+			});
 
 		setTrack(data.tracks.items);
 	};

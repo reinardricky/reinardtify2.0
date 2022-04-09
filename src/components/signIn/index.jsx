@@ -15,6 +15,7 @@ function SignIn() {
 	const [token, setToken] = useState("");
 
 	useEffect(() => {
+		var now = new Date().getTime();
 		const hash = window.location.hash;
 		let token = window.localStorage.getItem("token");
 
@@ -24,11 +25,18 @@ function SignIn() {
 				.split("&")
 				.find(elem => elem.startsWith("access_token"))
 				.split("=")[1];
+			window.localStorage.setItem("setupTime", now);
 		}
 		window.location.hash = "";
-		window.localStorage.setItem("token", token);
 		setToken(token);
 		dispatch(login(token));
+		window.localStorage.setItem("token", token);
+
+		var setupTime = localStorage.getItem("setupTime");
+		if (now - setupTime > 3600 * 1000) {
+			window.localStorage.clear();
+			dispatch(login(""));
+		}
 	}, [dispatch, token]);
 
 	const logout = () => {
