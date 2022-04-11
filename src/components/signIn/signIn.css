@@ -7,6 +7,7 @@
 	padding: 3px 20px;
 	margin: 10px 10px;
 	font-size: 25px;
+	cursor: pointer;
 }
 
 .logout {
@@ -19,4 +20,5 @@
 	margin: 10px 10px;
 	word-spacing: 20px;
 	font-size: 25px;
+	cursor: pointer;
 }
