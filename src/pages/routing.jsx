@@ -10,10 +10,6 @@ function Routing() {
 	return (
 		<div className="container">
 			<Switch>
-				<Route exact path="/">
-					<Redirect to="/home" />
-				</Route>
-
 				<Route exact path="/home">
 					{token && <Redirect to="/create-playlist" />}
 					<Home />
