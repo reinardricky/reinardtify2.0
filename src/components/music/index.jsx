@@ -1,6 +1,6 @@
 import "./music.css";
 
-const Music = ({ track, onSelectedTrack }) => {
+const Music = ({ track, onSelectedTrack, selectedList }) => {
 	const { album, name, artists, isSelected } = track;
 
 	return (
@@ -16,10 +16,14 @@ const Music = ({ track, onSelectedTrack }) => {
 
 			<div className="select-align">
 				<button
-					className={isSelected ? "deselect" : "select"}
+					className={
+						isSelected || selectedList
+							? "deselect track-button"
+							: "select track-button"
+					}
 					onClick={() => onSelectedTrack(track)}
 				>
-					{isSelected ? "Selected" : "Select"}
+					{isSelected || selectedList ? "Selected" : "Select"}
 				</button>
 			</div>
 		</div>

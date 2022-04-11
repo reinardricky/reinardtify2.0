@@ -14,7 +14,7 @@
 }
 
 .App-header {
-	background-color: #282c34;
+	background-color: #323031;
 	min-height: 100vh;
 	display: flex;
 	flex-direction: column;
@@ -57,10 +57,10 @@
 
 body {
 	font-family: "Roboto";
-	background-color: rgb(15, 15, 15);
+	background-color: rgb(238, 238, 238);
 	background-size: 40% auto;
 	background-repeat: repeat;
-	color: white;
+	color: #323031;
 }
 
 li {
@@ -82,33 +82,15 @@ html {
 	margin: 0 auto;
 }
 
-.music-searchlist {
-	overflow-y: scroll;
-	height: 500px;
-}
-.music-searchlist::-webkit-scrollbar {
-	width: 10px;
-	height: 10px;
-}
-.music-searchlist::-webkit-scrollbar-track {
-	background-color: transparent;
-	border-radius: 10px;
-}
-.music-searchlist::-webkit-scrollbar-thumb {
-	background-color: rgba(255, 255, 255, 0.747);
-	border-radius: 10px;
-}
-
 header h1 {
 	font-size: 60px;
 	text-align: center;
 	letter-spacing: 3px;
 	margin-bottom: 100px;
-	text-shadow: 0 3px 6px rgba(0, 0, 0, 0.5);
 }
 
 header {
-	background-color: rgb(3, 0, 0);
+	background-color: rgb(228, 227, 227);
 	height: 80px;
 	margin-bottom: 10px;
 }

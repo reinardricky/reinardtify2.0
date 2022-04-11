@@ -1,36 +1,34 @@
 .music {
-	width: 80%;
-	border: 1px solid rgb(0, 0, 0);
-	margin-bottom: 20px;
+	width: 90%;
+	margin-bottom: 10px;
 	margin-left: auto;
 	margin-right: auto;
-	padding: 20px 20px;
+	padding: 10px 10px;
 	display: flex;
-	background-color: rgb(0, 251, 163);
+	background-color: #ffffff;
 	color: rgb(0, 5, 50);
 	border-radius: 12px;
 	flex-flow: column wrap;
 	max-height: 140px;
 }
 .music img {
-	height: 90px;
+	height: 60px;
 }
 
 .music-left {
-	text-align: left;
 	display: flex;
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
-	max-width: 700px;
+	width: 300px;
 }
 
 .music h2 {
-	font-size: 25px;
+	font-size: 20px;
 }
 
 .music h3 {
-	font-size: 20px;
+	font-size: 18px;
 }
 
 .music h4 {
@@ -42,24 +40,23 @@
 	margin-left: 10px;
 }
 
-.select {
-	background-color: black;
+.track-button {
+	border: none;
 	display: inline-block;
 	border-radius: 100px;
+	padding: 10px 20px;
+	margin: 10px 10px;
+	font-size: 15px;
+}
+
+.select {
+	background-color: #323031;
 	color: white;
-	padding: 3px 20px;
-	margin: 20px 10px;
-	font-size: 25px;
 }
 
 .deselect {
-	background-color: rgb(255, 255, 255);
-	display: inline-block;
-	border-radius: 100px;
-	color: rgb(0, 0, 0);
-	padding: 3px 20px;
-	margin: 20px 10px;
-	font-size: 25px;
+	background-color: #5f5b6b;
+	color: white;
 }
 
 .select-align {
@@ -69,19 +66,19 @@
 @media all and (max-width: 1100px) {
 	.music-left {
 		margin-right: 10px;
-		width: 500px;
+		width: 600px;
 	}
 }
 
 @media all and (max-width: 900px) {
 	.music-left {
-		width: 400px;
+		width: 500px;
 	}
 }
 
 @media all and (max-width: 800px) {
 	.music-left {
-		width: 300px;
+		width: 400px;
 	}
 }
 
@@ -102,7 +99,7 @@
 
 	.music-left {
 		margin-right: 10px;
-		width: 300px;
+		width: 350px;
 	}
 	.music h2 {
 		font-size: 17px;
@@ -136,11 +133,15 @@
 
 @media all and (max-width: 500px) {
 	.music-left {
-		width: 200px;
+		width: 300px;
 	}
 }
 
 @media all and (max-width: 400px) {
+	.music-left {
+		width: 200px;
+	}
+
 	.music {
 		width: 95%;
 	}

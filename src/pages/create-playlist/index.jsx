@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Playlist from "../components/playlist";
-import SearchBar from "../components/searchbar";
-import Music from "../components/music";
-import SignIn from "../components/signIn";
+import Playlist from "../../components/playlist";
+import SearchBar from "../../components/searchbar";
+import Music from "../../components/music";
+import SignIn from "../../components/signIn";
 import { useSelector } from "react-redux";
+import "./create-playlist.css";
 
 function CreatePlaylist() {
 	const token = useSelector(state => state.token.value);
@@ -47,6 +48,19 @@ function CreatePlaylist() {
 			const { uri } = item;
 			return (
 				<Music key={uri} track={item} onSelectedTrack={handleSelectedTrack} />
+			);
+		});
+
+	const renderSelectedItems = () =>
+		selectedTracks.map(item => {
+			const { uri } = item;
+			return (
+				<Music
+					key={uri}
+					track={item}
+					onSelectedTrack={handleSelectedTrack}
+					selectedList={true}
+				/>
 			);
 		});
 
@@ -106,18 +120,30 @@ function CreatePlaylist() {
 	return (
 		<>
 			<SignIn />
-			<Playlist
-				playlist={playlist}
-				handleChange={handlePlaylistChange}
-				handleSubmit={playlistAdd}
-			/>
-			<h1>Search tracks</h1>
+			<div className="grid-container">
+				<div className="grid-item">
+					<Playlist
+						playlist={playlist}
+						handleChange={handlePlaylistChange}
+						handleSubmit={playlistAdd}
+					/>
+					<h1 className="title">Selected tracks</h1>
+					<div className="music-selectedlist renderItems">
+						{renderSelectedItems()}
+					</div>
+				</div>
+				<div className="grid-item">
+					<h1 className="title">Search tracks</h1>
 
-			<SearchBar
-				searchTrack={searchTrack}
-				handleSearchChange={handleSearchChange}
-			/>
-			<div className="music-searchlist">{renderSearchItems()}</div>
+					<SearchBar
+						searchTrack={searchTrack}
+						handleSearchChange={handleSearchChange}
+					/>
+					<div className="music-searchlist renderItems">
+						{renderSearchItems()}
+					</div>
+				</div>
+			</div>
 		</>
 	);
 }
