@@ -2,21 +2,22 @@
 	background-color: #bbd1ea;
 	display: inline-block;
 	border-radius: 100px;
-	color: black;
+	color: #323031;
 	text-align: center;
-	padding: 3px 20px;
+	padding: 10px 20px;
 	margin: 10px 10px;
 	font-size: 25px;
 	cursor: pointer;
 }
 
 .logout {
-	background-color: #ffffff;
+	background-color: #3d3b3c;
 	display: inline-block;
+	border: none;
 	border-radius: 100px;
-	color: black;
+	color: white;
 	text-align: center;
-	padding: 3px 20px;
+	padding: 7px 20px;
 	margin: 10px 10px;
 	word-spacing: 20px;
 	font-size: 25px;
