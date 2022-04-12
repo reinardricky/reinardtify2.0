@@ -37,7 +37,7 @@
 	top: 0;
 	right: 0;
 	border-radius: 50%;
-	color: white;
+	color: #bbd1ea;
 	text-align: center;
 	font-size: 1.2em;
 	transition: all 1s;
@@ -52,13 +52,13 @@
 .searching:hover .searching-input,
 .searching:valid .searching-input {
 	background-color: #323031;
-	color: white;
+	color: #bbd1ea;
 	display: block;
 }
 
 .searching:hover .fa-search,
 .searching:valid .fa-search {
-	background: white;
+	background: #bbd1ea;
 	color: #323031;
 }
 

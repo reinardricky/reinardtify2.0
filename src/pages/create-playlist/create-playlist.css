@@ -9,12 +9,11 @@
 }
 
 .renderItems {
-	/* border: 2px solid white; */
-	background-color: #bbd1ea;
+	background-color: rgb(238, 238, 238);
 	padding-top: 10px;
 	padding-bottom: 10px;
 	border-radius: 10px;
-	margin: 10px auto auto 0;
+	margin: 10px auto 0 auto;
 	overflow-y: scroll;
 }
 

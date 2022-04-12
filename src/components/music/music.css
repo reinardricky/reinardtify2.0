@@ -18,7 +18,6 @@
 .music-left {
 	display: flex;
 	overflow: hidden;
-	text-overflow: ellipsis;
 	white-space: nowrap;
 	width: 300px;
 }
@@ -48,16 +47,15 @@
 	margin: 10px 10px;
 	font-size: 15px;
 	cursor: pointer;
+	color: #bbd1ea;
 }
 
 .select {
 	background-color: #323031;
-	color: white;
 }
 
 .deselect {
 	background-color: #5f5b6b;
-	color: white;
 }
 
 .select-align {

@@ -2,7 +2,7 @@ import "./playlist.css";
 
 function Playlist({ playlist, handleChange, handleSubmit }) {
 	return (
-		<div className="addPlaylist">
+		<>
 			<h1>Create Playlist</h1>
 			<div className="playlist">
 				<form onSubmit={handleSubmit}>
@@ -30,7 +30,7 @@ function Playlist({ playlist, handleChange, handleSubmit }) {
 					<input type="submit" className="submit" value="Add Playlist" />
 				</form>
 			</div>
-		</div>
+		</>
 	);
 }
 

@@ -1,5 +1,5 @@
 .login a {
-	background-color: #bbd1ea;
+	background-color: white;
 	display: inline-block;
 	border-radius: 100px;
 	color: #323031;
@@ -15,7 +15,7 @@
 	display: inline-block;
 	border: none;
 	border-radius: 100px;
-	color: white;
+	color: #bbd1ea;
 	text-align: center;
 	padding: 7px 20px;
 	margin: 10px 10px;
