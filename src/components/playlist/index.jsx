@@ -6,9 +6,12 @@ function Playlist({ playlist, handleChange, handleSubmit }) {
 			<h1>Create Playlist</h1>
 			<div className="playlist">
 				<form onSubmit={handleSubmit}>
-					<h2>Title</h2>
+					<label htmlFor="playlist-title">
+						<h2>Title</h2>
+					</label>
 					<input
 						type="text"
+						id="playlist-title"
 						className="playlist-title"
 						placeholder="Insert Playlist Title"
 						name="title"
@@ -17,9 +20,12 @@ function Playlist({ playlist, handleChange, handleSubmit }) {
 						onChange={handleChange}
 					/>
 					<h3>minimum 10 characters</h3>
-					<h2>Description</h2>
+					<label htmlFor="playlist-desc">
+						<h2>Description</h2>
+					</label>
 					<input
 						type="text"
+						id="playlist-desc"
 						className="playlist-desc"
 						placeholder="Insert Playlist Description"
 						name="description"

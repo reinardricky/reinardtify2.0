@@ -19,7 +19,7 @@
 	display: flex;
 	overflow: hidden;
 	white-space: nowrap;
-	width: 300px;
+	width: 330px;
 }
 
 .music h2 {
@@ -44,10 +44,11 @@
 	display: inline-block;
 	border-radius: 100px;
 	padding: 10px 20px;
-	margin: 10px 10px;
+	margin: 12px 10px 10px 10px;
 	font-size: 15px;
 	cursor: pointer;
 	color: #bbd1ea;
+	font-weight: 500;
 }
 
 .select {
@@ -84,22 +85,18 @@
 @media all and (max-width: 670px) {
 	.music {
 		padding: 5px 10px 2px 10px;
-		margin-left: 4px;
-		margin-right: 4px;
-		display: inline-block;
-		width: 90%;
+		max-height: 100px;
 		margin-top: 0px;
 		margin-bottom: 10px;
 	}
-
+	.music-left {
+		margin-right: 10px;
+		width: 300px;
+	}
 	.music img {
 		height: 50px;
 	}
 
-	.music-left {
-		margin-right: 10px;
-		width: 350px;
-	}
 	.music h2 {
 		font-size: 17px;
 	}
@@ -111,34 +108,48 @@
 	.music h4 {
 		font-size: 10px;
 	}
-
-	.select {
+	.track-button {
 		font-size: 12px;
-		margin-top: 8px;
+		margin-top: 6px;
 		margin-left: 2px;
 		margin-bottom: 5px;
-	}
-	.deselect {
-		font-size: 12px;
-		margin-top: 8px;
-		margin-left: 2px;
-		margin-bottom: 5px;
-	}
-
-	.select-align {
-		text-align: center;
 	}
 }
 
-@media all and (max-width: 500px) {
+@media all and (max-width: 550px) {
+	.music {
+		max-height: 80px;
+	}
 	.music-left {
-		width: 300px;
+		width: 200px;
+	}
+	.music img {
+		height: 40px;
+	}
+
+	.music h2 {
+		font-size: 15px;
+	}
+
+	.music h3 {
+		font-size: 12px;
+	}
+
+	.music h4 {
+		font-size: 9px;
+	}
+
+	.track-button {
+		font-size: 12px;
+		margin-top: 4px;
+		margin-left: 2px;
+		margin-bottom: 5px;
 	}
 }
 
 @media all and (max-width: 400px) {
 	.music-left {
-		width: 200px;
+		width: 150px;
 	}
 
 	.music {
