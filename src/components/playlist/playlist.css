@@ -48,21 +48,6 @@
 	border-radius: 3px;
 }
 
-.submit {
-	background-color: #323031;
-	display: inline-block;
-	border-radius: 30px;
-	border: none;
-	color: #bbd1ea;
-	text-align: center;
-	padding: 8px 20px;
-	margin-bottom: 5px;
-	margin-top: 7px;
-	font-size: 20px;
-	cursor: pointer;
-	font-weight: 500;
-}
-
 @media all and (max-width: 670px) {
 	.addPlaylist {
 		font-size: 15px;
@@ -89,10 +74,6 @@
 	}
 
 	.playlist-desc {
-		font-size: 20px;
-	}
-
-	.submit {
 		font-size: 20px;
 	}
 }

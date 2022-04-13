@@ -1,4 +1,7 @@
 import "./music.css";
+import { IconButton, Tooltip } from "@mui/material";
+import AddIcon from "@mui/icons-material/Add";
+import DoDisturbIcon from "@mui/icons-material/DoDisturb";
 
 const Music = ({ track, onSelectedTrack, selectedList }) => {
 	const { album, name, artists, isSelected } = track;
@@ -15,16 +18,19 @@ const Music = ({ track, onSelectedTrack, selectedList }) => {
 			</div>
 
 			<div className="select-align">
-				<button
-					className={
-						isSelected || selectedList
-							? "deselect track-button"
-							: "select track-button"
-					}
-					onClick={() => onSelectedTrack(track)}
-				>
-					{isSelected || selectedList ? "Selected" : "Select"}
-				</button>
+				{isSelected || selectedList ? (
+					<Tooltip title="Remove Selected Tracks" followCursor>
+						<IconButton onClick={() => onSelectedTrack(track)} size="large">
+							<DoDisturbIcon />
+						</IconButton>
+					</Tooltip>
+				) : (
+					<Tooltip title="Add to Selected Tracks" followCursor>
+						<IconButton onClick={() => onSelectedTrack(track)} size="large">
+							<AddIcon />
+						</IconButton>
+					</Tooltip>
+				)}
 			</div>
 		</div>
 	);

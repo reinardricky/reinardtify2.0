@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
-import { login } from "../../redux/token-slice";
+import { login } from "../../core/redux/token-slice";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import "./signIn.css";
+import { Button } from "@mui/material";
+import LogoutIcon from "@mui/icons-material/Logout";
+import LoginIcon from "@mui/icons-material/Login";
 
 function SignIn() {
 	const CLIENT_ID = process.env.REACT_APP_SPOTIFY_CLIENT_ID;
@@ -47,18 +49,38 @@ function SignIn() {
 	return (
 		<>
 			{!token ? (
-				<div className="login">
-					<a
-						href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&scope=${SCOPE}`}
-					>
-						Login to Spotify
-					</a>
-				</div>
+				<Button
+					style={{
+						borderRadius: 10,
+						backgroundColor: "#1ED760",
+						color: "white",
+						padding: "5px 15px",
+						margin: "10px 10px",
+						fontSize: "22px",
+						fontWeight: 900,
+					}}
+					startIcon={<LoginIcon />}
+					href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&scope=${SCOPE}`}
+				>
+					Login to Spotify
+				</Button>
 			) : (
 				<Link to="/">
-					<button className="logout" onClick={logout}>
+					<Button
+						style={{
+							borderRadius: 15,
+							backgroundColor: "#323031",
+							color: "#bbd1ea",
+							padding: "7px 20px",
+							margin: "10px 10px",
+							fontSize: "22px",
+							fontWeight: 900,
+						}}
+						onClick={logout}
+						endIcon={<LogoutIcon />}
+					>
 						Logout
-					</button>
+					</Button>
 				</Link>
 			)}
 		</>

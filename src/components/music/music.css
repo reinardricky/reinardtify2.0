@@ -1,15 +1,15 @@
 .music {
-	width: 90%;
+	width: 100%;
 	margin-bottom: 10px;
 	margin-left: auto;
 	margin-right: auto;
 	padding: 10px 10px;
 	display: flex;
-	background-color: #ffffff;
+	background-color: rgb(238, 238, 238);
 	color: rgb(0, 5, 50);
 	border-radius: 12px;
 	flex-flow: column wrap;
-	max-height: 140px;
+	max-height: 85px;
 }
 .music img {
 	height: 60px;
@@ -39,27 +39,8 @@
 	margin-left: 10px;
 }
 
-.track-button {
-	border: none;
-	display: inline-block;
-	border-radius: 100px;
-	padding: 10px 20px;
-	margin: 12px 10px 10px 10px;
-	font-size: 15px;
-	cursor: pointer;
-	color: #bbd1ea;
-	font-weight: 500;
-}
-
-.select {
-	background-color: #323031;
-}
-
-.deselect {
-	background-color: #5f5b6b;
-}
-
 .select-align {
+	margin: 6px 0px 0px auto;
 	text-align: right;
 }
 
@@ -84,7 +65,7 @@
 
 @media all and (max-width: 670px) {
 	.music {
-		padding: 5px 10px 2px 10px;
+		padding: 5px 10px;
 		max-height: 100px;
 		margin-top: 0px;
 		margin-bottom: 10px;
@@ -108,11 +89,8 @@
 	.music h4 {
 		font-size: 10px;
 	}
-	.track-button {
-		font-size: 12px;
-		margin-top: 6px;
-		margin-left: 2px;
-		margin-bottom: 5px;
+	.select-align {
+		margin-top: 1px;
 	}
 }
 
@@ -137,13 +115,6 @@
 
 	.music h4 {
 		font-size: 9px;
-	}
-
-	.track-button {
-		font-size: 12px;
-		margin-top: 4px;
-		margin-left: 2px;
-		margin-bottom: 5px;
 	}
 }
 

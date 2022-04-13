@@ -9,16 +9,13 @@
 }
 
 .renderItems {
-	background-color: rgb(238, 238, 238);
-	padding-top: 10px;
-	padding-bottom: 10px;
 	border-radius: 10px;
 	margin: 10px auto 0 auto;
 	overflow-y: scroll;
 }
 
 .music-selectedlist {
-	height: 262px;
+	max-height: 262px;
 }
 
 .music-searchlist {
@@ -34,7 +31,7 @@
 	border-radius: 10px;
 }
 .renderItems::-webkit-scrollbar-thumb {
-	background-color: rgba(255, 255, 255, 0.747);
+	background-color: rgb(238, 238, 238, 0.8);
 	border-radius: 10px;
 }
 

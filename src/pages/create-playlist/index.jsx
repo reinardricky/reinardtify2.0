@@ -33,6 +33,7 @@ function CreatePlaylist() {
 		alreadySelected
 			? setSelectedTracks(selectedTracks.filter(t => t.uri !== track.uri))
 			: setSelectedTracks(selectedTracks => [...selectedTracks, track]);
+		console.log(selectedTracks);
 	};
 
 	useEffect(() => {
@@ -127,7 +128,9 @@ function CreatePlaylist() {
 						handleChange={handlePlaylistChange}
 						handleSubmit={playlistAdd}
 					/>
-					<h1 className="title">Selected tracks</h1>
+					{selectedTracks.length > 0 && (
+						<h1 className="title">Selected tracks</h1>
+					)}
 					<div className="music-selectedlist renderItems">
 						{renderSelectedItems()}
 					</div>

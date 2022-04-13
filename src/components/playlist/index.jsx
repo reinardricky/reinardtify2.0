@@ -1,4 +1,6 @@
+import { Button } from "@mui/material";
 import "./playlist.css";
+import PlaylistAddIcon from "@mui/icons-material/PlaylistAdd";
 
 function Playlist({ playlist, handleChange, handleSubmit }) {
 	return (
@@ -33,7 +35,23 @@ function Playlist({ playlist, handleChange, handleSubmit }) {
 						onChange={handleChange}
 					/>
 					<br />
-					<input type="submit" className="submit" value="Add Playlist" />
+					<Button
+						style={{
+							borderRadius: 3,
+							backgroundColor: "#323031",
+							color: "#bbd1ea",
+							padding: "6px 20px",
+							marginBottom: "4px",
+							marginTop: "6px",
+							fontSize: "18px",
+							fontWeight: 500,
+						}}
+						variant="contained"
+						endIcon={<PlaylistAddIcon />}
+						type="submit"
+					>
+						Add Playlist
+					</Button>
 				</form>
 			</div>
 		</>
