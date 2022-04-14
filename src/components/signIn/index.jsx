@@ -80,14 +80,21 @@ function SignIn() {
 			) : (
 				<Link to="/">
 					<Button
-						style={{
-							borderRadius: 15,
+						variant="contained"
+						sx={{
+							borderRadius: 1,
 							backgroundColor: "#323031",
 							color: "#bbd1ea",
 							padding: "7px 20px",
-							margin: "10px 10px",
+							margin: "10px auto",
 							fontSize: "22px",
 							fontWeight: 900,
+							"&:hover": {
+								backgroundColor: "#323031",
+							},
+							"@media(max-width: 670px)": {
+								fontSize: "15px",
+							},
 						}}
 						onClick={logout}
 						endIcon={<LogoutIcon />}
