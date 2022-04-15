@@ -13,9 +13,14 @@ export const userProfileSlice = createSlice({
 			state.image = action.payload.images[0].url;
 			state.id = action.payload.id;
 		},
+		logOutUserProfile: state => {
+			state.name = "";
+			state.image = "/broken-image.jpg";
+			state.id = "";
+		},
 	},
 });
 
-export const { addUserProfile } = userProfileSlice.actions;
+export const { addUserProfile, logOutUserProfile } = userProfileSlice.actions;
 
 export default userProfileSlice.reducer;

@@ -3,9 +3,10 @@ import { Switch, Route } from "react-router-dom";
 import { Redirect } from "react-router-dom";
 import CreatePlaylist from "./create-playlist";
 import Home from "./home";
+import { tokenState } from "../core/tsx-module/reduxState";
 
 function Routing() {
-	const token = useSelector(state => state.token.value);
+	const token = useSelector((state: tokenState) => state.token.value);
 
 	return (
 		<div className="container">
