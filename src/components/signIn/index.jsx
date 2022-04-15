@@ -8,7 +8,7 @@ import LogoutIcon from "@mui/icons-material/Logout";
 import LoginIcon from "@mui/icons-material/Login";
 import axios from "axios";
 
-function SignIn() {
+const SignIn = () => {
 	const CLIENT_ID = process.env.REACT_APP_SPOTIFY_CLIENT_ID;
 	const REDIRECT_URI = "http://localhost:3000/home";
 	const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize";
@@ -46,7 +46,7 @@ function SignIn() {
 				dispatch(addUserProfile(response.data));
 			});
 
-		var setupTime = localStorage.getItem("setupTime");
+		var setupTime = parseInt(localStorage.getItem("setupTime"));
 		if (now - setupTime > 3600 * 1000) {
 			window.localStorage.clear();
 			dispatch(login(""));
@@ -105,6 +105,6 @@ function SignIn() {
 			)}
 		</>
 	);
-}
+};
 
 export default SignIn;

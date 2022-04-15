@@ -7,7 +7,6 @@ export const userProfileSlice = createSlice({
 		image: "/broken-image.jpg",
 		id: "",
 	},
-	devTools: true,
 	reducers: {
 		addUserProfile: (state, action) => {
 			state.name = action.payload.display_name;

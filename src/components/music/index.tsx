@@ -2,7 +2,7 @@ import "./music.css";
 import { IconButton, Tooltip } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import DoDisturbIcon from "@mui/icons-material/DoDisturb";
-import { ItemIsSelected } from "../../core/tsx-module/tracks";
+import { Item } from "../../core/tsx-module/tracks";
 
 function millisToMinutesAndSeconds(millis: number) {
 	var minutes: number = Math.floor(millis / 60000);
@@ -11,8 +11,8 @@ function millisToMinutesAndSeconds(millis: number) {
 }
 
 interface Props {
-	track: ItemIsSelected;
-	onSelectedTrack(track: ItemIsSelected): void;
+	track: Item;
+	onSelectedTrack(track: Item): void;
 	selectedList: boolean;
 }
 

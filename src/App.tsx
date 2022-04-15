@@ -1,7 +1,7 @@
 import "./App.css";
 import Routing from "./pages/routing";
 import { Provider } from "react-redux";
-import store from "./core/redux/store.js";
+import store from "./core/redux/store";
 import { BrowserRouter as Router } from "react-router-dom";
 
 function App() {
