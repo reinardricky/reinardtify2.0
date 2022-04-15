@@ -50,7 +50,6 @@ const CreatePlaylist: FC = () => {
 					...selectedTracks,
 					track,
 			  ]);
-		console.log(selectedTracks);
 	};
 
 	useEffect(() => {

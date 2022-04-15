@@ -23,15 +23,16 @@ const SignIn: FC = () => {
 
 	useEffect(() => {
 		var now = new Date().getTime();
-		const hash: any = window.location.hash;
+		const hash = window.location.hash;
 		let token = window.localStorage.getItem("token");
 
 		if (!token && hash) {
-			token = hash
-				.substring(1)
-				.split("&")
-				.find((elem: string) => elem.startsWith("access_token"))
-				.split("=")[1];
+			token = (
+				hash
+					.substring(1)
+					.split("&")
+					.find((elem: string) => elem.startsWith("access_token")) as string
+			).split("=")[1];
 			window.localStorage.setItem("setupTime", now.toString());
 		}
 		window.location.hash = "";
