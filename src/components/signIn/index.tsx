@@ -5,7 +5,6 @@ import {
 	logOutUserProfile,
 } from "../../core/redux/userProfile-slice";
 import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
 import { Button } from "@mui/material";
 import LogoutIcon from "@mui/icons-material/Logout";
 import LoginIcon from "@mui/icons-material/Login";
@@ -56,6 +55,7 @@ const SignIn: FC = () => {
 		if (now - setupTime > 3600 * 1000) {
 			window.localStorage.clear();
 			dispatch(login(""));
+			setToken(null);
 		}
 	}, [dispatch]);
 
@@ -84,30 +84,28 @@ const SignIn: FC = () => {
 					Login to Spotify
 				</Button>
 			) : (
-				<Link to="/">
-					<Button
-						variant="contained"
-						sx={{
-							borderRadius: 1,
+				<Button
+					variant="contained"
+					sx={{
+						borderRadius: 1,
+						backgroundColor: "#323031",
+						color: "#bbd1ea",
+						padding: "7px 20px",
+						margin: "10px auto",
+						fontSize: "22px",
+						fontWeight: 900,
+						"&:hover": {
 							backgroundColor: "#323031",
-							color: "#bbd1ea",
-							padding: "7px 20px",
-							margin: "10px auto",
-							fontSize: "22px",
-							fontWeight: 900,
-							"&:hover": {
-								backgroundColor: "#323031",
-							},
-							"@media(max-width: 670px)": {
-								fontSize: "15px",
-							},
-						}}
-						onClick={logout}
-						endIcon={<LogoutIcon />}
-					>
-						Logout
-					</Button>
-				</Link>
+						},
+						"@media(max-width: 670px)": {
+							fontSize: "15px",
+						},
+					}}
+					onClick={logout}
+					endIcon={<LogoutIcon />}
+				>
+					Logout
+				</Button>
 			)}
 		</>
 	);

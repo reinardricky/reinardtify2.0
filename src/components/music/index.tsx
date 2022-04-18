@@ -34,7 +34,7 @@ const Music = ({ track, onSelectedTrack, selectedList }: Props) => {
 				<h3>{millisToMinutesAndSeconds(duration_ms)}</h3>
 				<IconButton onClick={() => onSelectedTrack(track)} size="large">
 					{isSelected || selectedList ? (
-						<Tooltip title="Remove Selected Tracks" followCursor>
+						<Tooltip title="Remove from Selected Tracks" followCursor>
 							<DoDisturbIcon />
 						</Tooltip>
 					) : (

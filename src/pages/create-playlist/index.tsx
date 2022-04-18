@@ -19,7 +19,6 @@ const CreatePlaylist: FC = () => {
 		(state: userProfileState) => state.userProfile.image
 	);
 	const userId = useSelector((state: userProfileState) => state.userProfile.id);
-
 	const [searchKey, setSearchKey] = useState("");
 	const [tracks, setTrack] = useState([]);
 	const [playlist, setPlaylist] = useState({
@@ -105,7 +104,7 @@ const CreatePlaylist: FC = () => {
 					{ uris: uris },
 					HeaderToken()
 				);
-				alert("Playlist Added");
+				alert("Playlist added");
 			})
 			.catch(() => {
 				alert("Playlist add failed");
