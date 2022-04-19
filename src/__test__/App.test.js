@@ -1,5 +1,4 @@
 import { render, screen } from "@testing-library/react";
-import App from "../App";
 import Music from "../components/music";
 import CreatePlaylist from "../pages/create-playlist";
 import { testItems } from "./jsonData/tracks";
@@ -7,12 +6,7 @@ import { Provider } from "react-redux";
 import store from "../core/redux/store";
 import SearchBar from "../components/searchbar";
 import userEvent from "@testing-library/user-event";
-
-test("renders headers", () => {
-	render(<App />);
-	const headers = screen.getByText(/Reinardtify/i);
-	expect(headers).toBeInTheDocument();
-});
+import { emptyTracks } from "./jsonData/emptyTracks";
 
 test("renders components in Create Playlist", () => {
 	render(
@@ -50,4 +44,10 @@ test("searchBar component", () => {
 	userEvent.type(input, "abc{enter}");
 
 	expect(searchTrack).toHaveBeenCalled();
+});
+
+test("MSW Search API", () => {
+	render(<Music track={emptyTracks} isSelected={false} />);
+	const checkSearch = screen.findByText("TEST DRIVE");
+	expect(checkSearch).toBeInTheDocument;
 });
