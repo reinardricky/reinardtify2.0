@@ -9,10 +9,10 @@
 	color: rgb(0, 5, 50);
 	border-radius: 12px;
 	flex-flow: column wrap;
-	max-height: 85px;
+	max-height: 100px;
 }
 .music img {
-	height: 60px;
+	height: 70px;
 }
 
 .music-left {

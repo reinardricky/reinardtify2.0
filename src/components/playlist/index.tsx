@@ -26,6 +26,7 @@ function Playlist({ playlist, handleChange, handleSubmit }: Props) {
 						className="playlist-title"
 						placeholder="Insert Playlist Title"
 						name="title"
+						autoComplete="off"
 						minLength={10}
 						value={playlist.title}
 						onChange={handleChange}
@@ -40,6 +41,7 @@ function Playlist({ playlist, handleChange, handleSubmit }: Props) {
 						className="playlist-desc"
 						placeholder="Insert Playlist Description"
 						name="description"
+						autoComplete="off"
 						value={playlist.description}
 						onChange={handleChange}
 					/>

@@ -13,6 +13,7 @@ function SearchBar({ searchTrack, handleSearchChange }: Props) {
 				type="search"
 				className="searching-input"
 				placeholder="Search..."
+				autoComplete="off"
 				onChange={handleSearchChange}
 				onKeyPress={e => e.key === "Enter"}
 				required
