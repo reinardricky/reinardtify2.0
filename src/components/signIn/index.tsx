@@ -12,7 +12,7 @@ import axios from "axios";
 
 const SignIn: FC = () => {
 	const CLIENT_ID = process.env.REACT_APP_SPOTIFY_CLIENT_ID;
-	const REDIRECT_URI = "http://localhost:3000/home";
+	const REDIRECT_URI = process.env.REACT_APP_SPOTIFY_CALLBACK;
 	const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize";
 	const RESPONSE_TYPE = "token";
 	const SCOPE = "playlist-modify-private";

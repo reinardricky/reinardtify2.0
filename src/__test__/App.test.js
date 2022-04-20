@@ -7,6 +7,11 @@ import store from "../core/redux/store";
 import SearchBar from "../components/searchbar";
 import userEvent from "@testing-library/user-event";
 import { emptyTracks } from "./jsonData/emptyTracks";
+import { server } from "../core/msw/server";
+
+beforeAll(() => server.listen());
+afterEach(() => server.resetHandlers());
+afterAll(() => server.close());
 
 test("renders components in Create Playlist", () => {
 	render(
@@ -46,8 +51,15 @@ test("searchBar component", () => {
 	expect(searchTrack).toHaveBeenCalled();
 });
 
-test("MSW Search API", () => {
-	render(<Music track={emptyTracks} isSelected={false} />);
-	const checkSearch = screen.findByText("TEST DRIVE");
+test("MSW Search API", async () => {
+	render(
+		<Provider store={store}>
+			<CreatePlaylist />
+		</Provider>
+	);
+	const input = screen.getByPlaceholderText("Search...");
+	userEvent.type(input, "TEST DRIVE{enter}");
+	// render(<Music track={emptyTracks} isSelected={false} />);
+	const checkSearch = await screen.findByText("TEST DRIVE");
 	expect(checkSearch).toBeInTheDocument;
 });
