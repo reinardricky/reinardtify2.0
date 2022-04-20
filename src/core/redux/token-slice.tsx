@@ -1,11 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 interface CounterState {
-	value: string;
+	value: string | null;
 }
 
 const initialState: CounterState = {
-	value: "",
+	value: null,
 };
 
 export const tokenSlice = createSlice({

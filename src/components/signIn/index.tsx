@@ -23,10 +23,10 @@ const SignIn: FC = () => {
 	useEffect(() => {
 		var now = new Date().getTime();
 		const hash = window.location.hash;
-		let token = window.localStorage.getItem("token");
+		let tokenLocal = window.localStorage.getItem("token");
 
 		if (!token && hash) {
-			token = (
+			tokenLocal = (
 				hash
 					.substring(1)
 					.split("&")
@@ -35,9 +35,9 @@ const SignIn: FC = () => {
 			window.localStorage.setItem("setupTime", now.toString());
 		}
 		window.location.hash = "";
-		setToken(token);
-		dispatch(login(token));
-		window.localStorage.setItem("token", String(token));
+		setToken(tokenLocal);
+		dispatch(login(tokenLocal));
+		window.localStorage.setItem("token", String(tokenLocal));
 
 		if (token) {
 			axios
@@ -54,15 +54,15 @@ const SignIn: FC = () => {
 		var setupTime = parseInt(String(localStorage.getItem("setupTime")));
 		if (now - setupTime > 3600 * 1000) {
 			window.localStorage.clear();
-			dispatch(login(""));
+			dispatch(login(null));
 			setToken(null);
 		}
-	}, [dispatch]);
+	}, [token, dispatch]);
 
 	const logout = () => {
 		setToken(null);
 		window.localStorage.setItem("token", "");
-		dispatch(login(""));
+		dispatch(login(null));
 		dispatch(logOutUserProfile());
 	};
 	return (

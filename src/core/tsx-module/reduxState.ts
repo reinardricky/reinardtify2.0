@@ -1,5 +1,5 @@
 export interface tokenState {
-	token: { value: string };
+	token: { value: string | null };
 }
 
 export interface userProfileState {
