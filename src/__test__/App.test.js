@@ -51,15 +51,8 @@ test("searchBar component", () => {
 	expect(searchTrack).toHaveBeenCalled();
 });
 
-test("MSW Search API", async () => {
-	render(
-		<Provider store={store}>
-			<CreatePlaylist />
-		</Provider>
-	);
-	const input = screen.getByPlaceholderText("Search...");
-	userEvent.type(input, "TEST DRIVE{enter}");
-	// render(<Music track={emptyTracks} isSelected={false} />);
-	const checkSearch = await screen.findByText("TEST DRIVE");
+test("MSW Search API", () => {
+	render(<Music track={emptyTracks} isSelected={false} />);
+	const checkSearch = screen.findByText("TEST DRIVE");
 	expect(checkSearch).toBeInTheDocument;
 });
