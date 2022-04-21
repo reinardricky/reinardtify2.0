@@ -53,7 +53,8 @@ const SignIn: FC = () => {
 
 		var setupTime = parseInt(String(localStorage.getItem("setupTime")));
 		if (now - setupTime > 3600 * 1000) {
-			window.localStorage.clear();
+			window.localStorage.setItem("setupTime", now.toString());
+			window.localStorage.setItem("token", "");
 			dispatch(login(null));
 			setToken(null);
 		}
