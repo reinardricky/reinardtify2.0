@@ -8,6 +8,7 @@ import SearchBar from "../components/searchbar";
 import userEvent from "@testing-library/user-event";
 import { emptyTracks } from "./jsonData/emptyTracks";
 import { server } from "../core/msw/server";
+import SearchAPITest from "../components/searchAPITest";
 
 beforeAll(() => server.listen());
 afterEach(() => server.resetHandlers());
@@ -51,8 +52,9 @@ test("searchBar component", () => {
 	expect(searchTrack).toHaveBeenCalled();
 });
 
-test("MSW Search API", () => {
-	render(<Music track={emptyTracks} isSelected={false} />);
-	const checkSearch = screen.findByText("TEST DRIVE");
+test("MSW Search API", async () => {
+	render(<SearchAPITest />);
+	userEvent.click(screen.getByText("search"));
+	const checkSearch = await screen.findByText("TEST DRIVE");
 	expect(checkSearch).toBeInTheDocument;
 });
